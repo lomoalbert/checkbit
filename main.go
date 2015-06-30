@@ -19,9 +19,9 @@ func read(finame string) string {
 	b := make([]byte, 4)
 	_, err = fi.ReadAt(b, 60)
 	checkerr(err)
-	offset := int(b[0]) + int(b[1])*256 + int(b[2])*256*256 + int(b[3])*256*256*256
+	offset := int64(b[0]) + int64(b[1])*256 + int64(b[2])*256*256 + int64(b[3])*256*256*256
 	value := make([]byte, 2)
-	_, err = fi.ReadAt(value, int64(offset)+4)
+	_, err = fi.ReadAt(value, offset+4)
 	checkerr(err)
 	return string(value)
 
