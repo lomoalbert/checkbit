@@ -29,6 +29,10 @@ func read(finame string) string {
 
 func main() {
 	flag.Parse()
+	if flag.NArg() <1{
+		fmt.Println("please put finename in!")
+		return
+	}
 	finame := flag.Arg(0)
 	value := read(finame)
 	switch value {
